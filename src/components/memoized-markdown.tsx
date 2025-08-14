@@ -22,9 +22,13 @@ MemoizedMarkdownBlock.displayName = "MemoizedMarkdownBlock";
 export const MemoizedMarkdown = memo(({ content }: { content: string }) => {
   const blocks = useMemo(() => parseMarkdownIntoBlocks(content), [content]);
 
-  return blocks.map((block, index) => (
-    <MemoizedMarkdownBlock content={block} key={`output-block_${index}`} />
-  ));
+  return (
+    <div className="prose prose-sm max-w-none dark:prose-invert">
+      {blocks.map((block, index) => (
+        <MemoizedMarkdownBlock content={block} key={`output-block_${index}`} />
+      ))}
+    </div>
+  );
 });
 
 MemoizedMarkdown.displayName = "MemoizedMarkdown";

@@ -1,4 +1,5 @@
 import { Input } from "./ui/input";
+import { useTranslation } from "react-i18next";
 import type { NoteType, NoteContext } from "../lib/data";
 import { contextFields } from "../lib/data";
 
@@ -13,6 +14,8 @@ export function ContextForm({
   context,
   onContextChange,
 }: ContextFormProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="space-y-4 mb-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -25,7 +28,7 @@ export function ContextForm({
               </div>
               <Input
                 type="text"
-                placeholder={field.label}
+                placeholder={t(`context.${field.key}`)}
                 value={
                   context[noteType][
                     field.key as keyof (typeof context)[typeof noteType]

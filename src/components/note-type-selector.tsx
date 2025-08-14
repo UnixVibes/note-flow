@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import type { NoteType } from "../lib/data";
-import { t } from "../lib/translations";
+import { useTranslation } from "react-i18next";
 
 interface NoteTypeSelectorProps {
   noteType: NoteType;
@@ -11,6 +11,8 @@ export function NoteTypeSelector({
   noteType,
   onNoteTypeChange,
 }: NoteTypeSelectorProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="mb-4 sm:mb-6">
       <div className="bg-muted p-1 rounded-lg inline-flex w-full sm:w-auto">
@@ -20,7 +22,7 @@ export function NoteTypeSelector({
           onClick={() => onNoteTypeChange("interview")}
           className="flex-1 sm:flex-none"
         >
-          {t("interviewNotes")}
+          {t("noteType.interview")}
         </Button>
         <Button
           variant={noteType === "meeting" ? "default" : "ghost"}
@@ -28,7 +30,7 @@ export function NoteTypeSelector({
           onClick={() => onNoteTypeChange("meeting")}
           className="flex-1 sm:flex-none"
         >
-          {t("meetingNotes")}
+          {t("noteType.meeting")}
         </Button>
       </div>
     </div>

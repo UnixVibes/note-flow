@@ -1,7 +1,7 @@
 import { Button } from "./ui/button";
 import type { NoteType } from "../lib/data";
 import { useCaseOptions } from "../lib/data";
-import { t } from "../lib/translations";
+import { useTranslation } from "react-i18next";
 
 interface OutputFormatSelectorProps {
   noteType: NoteType;
@@ -14,10 +14,11 @@ export function OutputFormatSelector({
   selectedFormat,
   onFormatChange,
 }: OutputFormatSelectorProps) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-medium text-foreground">
-        {t("outputFormat")}
+        {t("input.outputFormat")}
       </h3>
       <div className="flex flex-col sm:flex-row flex-wrap gap-2">
         {useCaseOptions[noteType].map((option) => {
@@ -31,7 +32,7 @@ export function OutputFormatSelector({
               className="flex items-center justify-center sm:justify-start space-x-2"
             >
               <Icon className="h-4 w-4" />
-              <span>{option.label}</span>
+              <span>{t(`formats.${option.value}`)}</span>
             </Button>
           );
         })}

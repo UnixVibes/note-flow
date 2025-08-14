@@ -6,7 +6,7 @@ export function App() {
   return (
     <ThemeProvider>
       <NoteTransformer />
-      <Analytics />
+      {import.meta.env.NODE_ENV === "production" && <Analytics />}
     </ThemeProvider>
   );
 }

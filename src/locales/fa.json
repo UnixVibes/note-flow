@@ -1,0 +1,71 @@
+{
+  "app": {
+    "title": "نوت استودیو",
+    "description": "یادداشت‌های خام خود را به قالب‌های حرفه‌ای و منظم تبدیل کنید"
+  },
+  "noteType": {
+    "interview": "مصاحبه",
+    "meeting": "جلسه",
+    "selectType": "نوع یادداشت را انتخاب کنید"
+  },
+  "context": {
+    "title": "اطلاعات ورودی",
+    "subject": "موضوع (مصاحبه، جلسه،...)",
+    "position": "موقعیت (مهندس نرم‌افزار، مدیر محصول،...)",
+    "candidate": "نام نامزد (علی، امیر،...)",
+    "interviewType": "نوع مصاحبه (فنی، منابع انسانی،...)",
+    "duration": "مدت زمان (30 دقیقه، 1 ساعت،...)",
+    "meetingTitle": "عنوان جلسه (همایش هفتگی، شروع پروژه،...)",
+    "attendees": "حاضران (اعضای تیم، ذینفعان،...)",
+    "date": "تاریخ (فرمت YYYY-MM-DD)"
+  },
+  "input": {
+    "title": "ورودی",
+    "rawNotes": "یادداشت‌های خام",
+    "rawNotesPlaceholder": "یادداشت‌های خام خود را اینجا وارد کنید...",
+    "loadSample": "بارگذاری نمونه",
+    "outputFormat": "قالب خروجی",
+    "selectFormat": "قالب خروجی را انتخاب کنید"
+  },
+  "output": {
+    "title": "خروجی",
+    "copy": "کپی",
+    "copied": "کپی شد!",
+    "placeholder": "یادداشت‌های تبدیل شده شما اینجا نمایش داده می‌شود",
+    "transforming": "در حال تبدیل...",
+    "transform": "تبدیل یادداشت‌ها"
+  },
+  "formats": {
+    "evaluation": "خلاصه ارزیابی",
+    "slack": "به‌روزرسانی اسلک",
+    "email": "خلاصه ایمیل",
+    "googledoc": "سند گوگل"
+  },
+  "settings": {
+    "title": "تنظیمات هوش مصنوعی",
+    "description": "تنظیمات Google Gemini API خود را پیکربندی کنید",
+    "apiKey": "کلید API",
+    "apiKeyPlaceholder": "کلید Google AI API خود را وارد کنید",
+    "apiKeyDescription": "کلید API خود را از Google AI Studio دریافت کنید",
+    "apiKeySecurity": "کلید شما در فضای مرورگر خودتان ذخیره می‌شود و هرگز اشتراک‌گذاری نمی‌شود.",
+    "model": "مدل",
+    "selectModel": "یک مدل انتخاب کنید",
+    "save": "ذخیره تنظیمات",
+    "cancel": "لغو"
+  },
+  "theme": {
+    "light": "روشن",
+    "dark": "تاریک",
+    "system": "سیستم",
+    "toggle": "تغییر پوسته"
+  },
+  "language": {
+    "select": "انتخاب زبان",
+    "english": "English",
+    "persian": "فارسی"
+  },
+  "footer": {
+    "builtBy": "ساخته شده توسط",
+    "viewOnGithub": "مشاهده در گیت‌هاب"
+  }
+}

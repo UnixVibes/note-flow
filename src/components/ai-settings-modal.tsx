@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -31,6 +32,7 @@ interface AISettingsModalProps {
 }
 
 export function AISettingsModal({ onSettingsChange }: AISettingsModalProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [settings, setSettings] = useState<GeminiSettings>({
     model: "gemini-1.5-flash",
@@ -53,21 +55,18 @@ export function AISettingsModal({ onSettingsChange }: AISettingsModalProps) {
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
           <Settings className="h-4 w-4" />
-          Gemini Settings
+          {t("settings.title")}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Google Gemini Settings</DialogTitle>
-          <DialogDescription>
-            Configure your Google Gemini model preferences. Your API key is
-            stored locally.
-          </DialogDescription>
+          <DialogTitle>{t("settings.title")}</DialogTitle>
+          <DialogDescription>{t("settings.description")}</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="model">Gemini Model</Label>
+            <Label htmlFor="model">{t("settings.model")}</Label>
             <Select
               value={settings.model}
               onValueChange={(model) =>
@@ -75,7 +74,7 @@ export function AISettingsModal({ onSettingsChange }: AISettingsModalProps) {
               }
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select Gemini model" />
+                <SelectValue placeholder={t("settings.selectModel")} />
               </SelectTrigger>
               <SelectContent>
                 {GEMINI_MODELS.map((model) => (
@@ -88,18 +87,18 @@ export function AISettingsModal({ onSettingsChange }: AISettingsModalProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="apiKey">Google API Key</Label>
+            <Label htmlFor="apiKey">{t("settings.apiKey")}</Label>
             <Input
               id="apiKey"
               type="password"
-              placeholder="Enter your Google API key"
+              placeholder={t("settings.apiKeyPlaceholder")}
               value={settings.apiKey}
               onChange={(e) =>
                 setSettings((prev) => ({ ...prev, apiKey: e.target.value }))
               }
             />
             <p className="text-xs text-muted-foreground">
-              Get your API key from{" "}
+              {t("settings.apiKeyDescription")}{" "}
               <a
                 href="https://aistudio.google.com/app/apikey"
                 target="_blank"
@@ -108,16 +107,16 @@ export function AISettingsModal({ onSettingsChange }: AISettingsModalProps) {
               >
                 Google AI Studio
               </a>
-              . Your key is stored locally and never shared.
+              . {t("settings.apiKeySecurity")}
             </p>
           </div>
         </div>
 
         <DialogFooter>
           <Button variant="outline" onClick={() => setOpen(false)}>
-            Cancel
+            {t("settings.cancel")}
           </Button>
-          <Button onClick={handleSave}>Save Settings</Button>
+          <Button onClick={handleSave}>{t("settings.save")}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

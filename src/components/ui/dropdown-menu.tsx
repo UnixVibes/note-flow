@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { Circle, ChevronRight, Check } from "lucide-react";
+import { Circle, ChevronRight, ChevronLeft, Check } from "lucide-react";
 
 import { cn } from "../../lib/utils";
+import { isRTL } from "../../lib/i18n";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
@@ -28,20 +29,28 @@ const DropdownMenuSubTrigger = ({
   ref?: React.RefObject<React.ElementRef<
     typeof DropdownMenuPrimitive.SubTrigger
   > | null>;
-}) => (
-  <DropdownMenuPrimitive.SubTrigger
-    ref={ref}
-    className={cn(
-      "flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-      inset && "pl-8",
-      className,
-    )}
-    {...props}
-  >
-    {children}
-    <ChevronRight className="ml-auto" />
-  </DropdownMenuPrimitive.SubTrigger>
-);
+}) => {
+  const rtl = isRTL();
+
+  return (
+    <DropdownMenuPrimitive.SubTrigger
+      ref={ref}
+      className={cn(
+        "flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+        inset && (rtl ? "pr-8" : "pl-8"),
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      {rtl ? (
+        <ChevronLeft className="mr-auto" />
+      ) : (
+        <ChevronRight className="ml-auto" />
+      )}
+    </DropdownMenuPrimitive.SubTrigger>
+  );
+};
 DropdownMenuSubTrigger.displayName =
   DropdownMenuPrimitive.SubTrigger.displayName;
 
@@ -101,17 +110,21 @@ const DropdownMenuItem = ({
   ref?: React.RefObject<React.ElementRef<
     typeof DropdownMenuPrimitive.Item
   > | null>;
-}) => (
-  <DropdownMenuPrimitive.Item
-    ref={ref}
-    className={cn(
-      "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-      inset && "pl-8",
-      className,
-    )}
-    {...props}
-  />
-);
+}) => {
+  const rtl = isRTL();
+
+  return (
+    <DropdownMenuPrimitive.Item
+      ref={ref}
+      className={cn(
+        "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+        inset && (rtl ? "pr-8" : "pl-8"),
+        className,
+      )}
+      {...props}
+    />
+  );
+};
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
 const DropdownMenuCheckboxItem = ({
@@ -124,24 +137,34 @@ const DropdownMenuCheckboxItem = ({
   ref?: React.RefObject<React.ElementRef<
     typeof DropdownMenuPrimitive.CheckboxItem
   > | null>;
-}) => (
-  <DropdownMenuPrimitive.CheckboxItem
-    ref={ref}
-    className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      className,
-    )}
-    checked={checked}
-    {...props}
-  >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-      <DropdownMenuPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
-      </DropdownMenuPrimitive.ItemIndicator>
-    </span>
-    {children}
-  </DropdownMenuPrimitive.CheckboxItem>
-);
+}) => {
+  const rtl = isRTL();
+
+  return (
+    <DropdownMenuPrimitive.CheckboxItem
+      ref={ref}
+      className={cn(
+        "relative flex cursor-default select-none items-center rounded-sm py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        rtl ? "pr-8 pl-2" : "pl-8 pr-2",
+        className,
+      )}
+      checked={checked}
+      {...props}
+    >
+      <span
+        className={cn(
+          "absolute flex h-3.5 w-3.5 items-center justify-center",
+          rtl ? "right-2" : "left-2",
+        )}
+      >
+        <DropdownMenuPrimitive.ItemIndicator>
+          <Check className="h-4 w-4" />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.CheckboxItem>
+  );
+};
 DropdownMenuCheckboxItem.displayName =
   DropdownMenuPrimitive.CheckboxItem.displayName;
 
@@ -154,23 +177,33 @@ const DropdownMenuRadioItem = ({
   ref?: React.RefObject<React.ElementRef<
     typeof DropdownMenuPrimitive.RadioItem
   > | null>;
-}) => (
-  <DropdownMenuPrimitive.RadioItem
-    ref={ref}
-    className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      className,
-    )}
-    {...props}
-  >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-      <DropdownMenuPrimitive.ItemIndicator>
-        <Circle className="h-2 w-2 fill-current" />
-      </DropdownMenuPrimitive.ItemIndicator>
-    </span>
-    {children}
-  </DropdownMenuPrimitive.RadioItem>
-);
+}) => {
+  const rtl = isRTL();
+
+  return (
+    <DropdownMenuPrimitive.RadioItem
+      ref={ref}
+      className={cn(
+        "relative flex cursor-default select-none items-center rounded-sm py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        rtl ? "pr-8 pl-2" : "pl-8 pr-2",
+        className,
+      )}
+      {...props}
+    >
+      <span
+        className={cn(
+          "absolute flex h-3.5 w-3.5 items-center justify-center",
+          rtl ? "right-2" : "left-2",
+        )}
+      >
+        <DropdownMenuPrimitive.ItemIndicator>
+          <Circle className="h-2 w-2 fill-current" />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.RadioItem>
+  );
+};
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
 const DropdownMenuLabel = ({
@@ -184,17 +217,21 @@ const DropdownMenuLabel = ({
   ref?: React.RefObject<React.ElementRef<
     typeof DropdownMenuPrimitive.Label
   > | null>;
-}) => (
-  <DropdownMenuPrimitive.Label
-    ref={ref}
-    className={cn(
-      "px-2 py-1.5 text-sm font-semibold",
-      inset && "pl-8",
-      className,
-    )}
-    {...props}
-  />
-);
+}) => {
+  const rtl = isRTL();
+
+  return (
+    <DropdownMenuPrimitive.Label
+      ref={ref}
+      className={cn(
+        "px-2 py-1.5 text-sm font-semibold",
+        inset && (rtl ? "pr-8" : "pl-8"),
+        className,
+      )}
+      {...props}
+    />
+  );
+};
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
 const DropdownMenuSeparator = ({
@@ -218,9 +255,15 @@ const DropdownMenuShortcut = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLSpanElement>) => {
+  const rtl = isRTL();
+
   return (
     <span
-      className={cn("ml-auto text-xs tracking-widest opacity-60", className)}
+      className={cn(
+        "text-xs tracking-widest opacity-60",
+        rtl ? "mr-auto" : "ml-auto",
+        className,
+      )}
       {...props}
     />
   );

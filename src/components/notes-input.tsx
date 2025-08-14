@@ -1,7 +1,7 @@
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
-import { t } from "../lib/translations";
-import { sampleData } from "../lib/data";
+import { useTranslation } from "react-i18next";
+import { getSampleData } from "../lib/data";
 import type { NoteType } from "../lib/data";
 import { Lightbulb } from "lucide-react";
 
@@ -18,8 +18,9 @@ export function NotesInput({
   noteType,
   onContextChange,
 }: NotesInputProps) {
+  const { t } = useTranslation();
   const handleLoadSample = () => {
-    const sample = sampleData[noteType];
+    const sample = getSampleData(noteType);
     onNotesChange(sample.notes);
 
     // Update context fields
@@ -31,7 +32,9 @@ export function NotesInput({
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-medium text-foreground">{t("rawNotes")}</h3>
+        <h3 className="text-lg font-medium text-foreground">
+          {t("input.rawNotes")}
+        </h3>
         <Button
           variant="outline"
           size="sm"
@@ -39,13 +42,13 @@ export function NotesInput({
           className="flex items-center gap-2 text-sm"
         >
           <Lightbulb className="h-4 w-4" />
-          Load Sample
+          {t("input.loadSample")}
         </Button>
       </div>
       <Textarea
         value={rawNotes}
         onChange={(e) => onNotesChange(e.target.value)}
-        placeholder={t("rawNotesPlaceholder")}
+        placeholder={t("input.rawNotesPlaceholder")}
         rows={8}
         className="resize-none"
       />

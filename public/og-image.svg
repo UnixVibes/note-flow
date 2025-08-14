@@ -1,7 +1,161 @@
-<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0f172a;stop-opacity:1"/><stop offset="50%" style="stop-color:#1e293b;stop-opacity:1"/><stop offset="100%" style="stop-color:#334155;stop-opacity:1"/></linearGradient><linearGradient id="c" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/><stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1"/><stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1"/></linearGradient><linearGradient id="d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fff;stop-opacity:.9"/><stop offset="100%" style="stop-color:#f8fafc;stop-opacity:.9"/></linearGradient><filter id="e"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path fill="url(#a)" d="M0 0h1280v640H0z"/><pattern id="b" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" stroke="#475569" stroke-width=".5" opacity=".3"/></pattern><path fill="url(#b)" d="M0 0h1280v640H0z"/><circle cx="100" cy="100" r="60" fill="#6366f1" opacity=".05"/><circle cx="1180" cy="540" r="80" fill="#8b5cf6" opacity=".05"/><circle cx="1100" cy="150" r="50" fill="#06b6d4" opacity=".05"/><g transform="translate(140 160)"><circle cx="50" cy="50" r="45" fill="url(#c)" opacity=".2"/><rect x="20" y="25" width="30" height="40" rx="3" fill="url(#c)" opacity=".6"/><rect x="25" y="30" width="20" height="30" rx="2" fill="url(#d)"/><path stroke="#6366f1" stroke-linecap="round" d="M28 38h14m-14 4h12m-12 4h10"/><path d="M55 50q10-10 20 0" stroke="url(#c)" stroke-width="2" stroke-linecap="round" filter="url(#e)"/><path fill="url(#c)" d="m72 47 8 3-8 3z"/><rect x="85" y="25" width="30" height="40" rx="3" fill="url(#c)" opacity=".8"/><rect x="90" y="30" width="20" height="30" rx="2" fill="url(#d)"/><rect x="93" y="38" width="8" height="2" rx="1" fill="#06b6d4"/><rect x="93" y="42" width="10" height="2" rx="1" fill="#06b6d4"/><rect x="93" y="46" width="6" height="2" rx="1" fill="#06b6d4"/><rect x="93" y="50" width="8" height="2" rx="1" fill="#06b6d4"/><rect x="93" y="54" width="10" height="2" rx="1" fill="#06b6d4"/></g><text x="320" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="800" fill="#fff">
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#334155" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Primary Gradient - Modern AI Blue to Purple -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="1" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="1" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Secondary Gradient - Accent -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="1" />
+      <stop offset="100%" stop-color="#0891b2" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Success Gradient -->
+    <linearGradient id="successGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="1" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Neural Network Pattern -->
+    <pattern id="neuralPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="2" fill="url(#primaryGradient)" opacity="0.1"/>
+      <circle cx="10" cy="10" r="1.5" fill="url(#accentGradient)" opacity="0.08"/>
+      <circle cx="50" cy="20" r="1" fill="url(#successGradient)" opacity="0.06"/>
+    </pattern>
+
+    <!-- Grid Pattern -->
+    <pattern id="gridPattern" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0v80" stroke="#475569" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Overlay -->
+  <rect width="1280" height="640" fill="url(#gridPattern)"/>
+  
+  <!-- Neural Network Background -->
+  <rect width="1280" height="640" fill="url(#neuralPattern)"/>
+
+  <!-- Decorative Background Elements -->
+  <circle cx="200" cy="150" r="100" fill="url(#primaryGradient)" opacity="0.03"/>
+  <circle cx="1100" cy="500" r="120" fill="url(#accentGradient)" opacity="0.03"/>
+  <circle cx="1150" cy="100" r="80" fill="url(#successGradient)" opacity="0.03"/>
+
+  <!-- Main Logo Section -->
+  <g transform="translate(120, 180)">
+    <!-- Scaled up version of our icon -->
+    <g transform="scale(1.2)">
+      <!-- Background Neural Network -->
+      <circle cx="120" cy="120" r="115" fill="url(#neuralPattern)" opacity="0.4"/>
+
+      <!-- Central Brain/Core -->
+      <circle cx="120" cy="120" r="32" fill="url(#primaryGradient)" opacity="0.2"/>
+
+      <!-- Inner AI Core -->
+      <circle cx="120" cy="120" r="18" fill="url(#primaryGradient)" opacity="0.9" filter="url(#glow)"/>
+
+      <!-- AI Symbol - Modern Hexagonal Pattern -->
+      <polygon points="120,102 132,108 132,132 120,138 108,132 108,108" fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
+      <polygon points="120,108 126,111 126,129 120,132 114,129 114,111" fill="white" opacity="0.8"/>
+
+      <!-- Data Flow Particles - Static positions for social image -->
+      <circle cx="60" cy="120" r="4" fill="url(#accentGradient)" opacity="0.9"/>
+      <circle cx="60" cy="110" r="3" fill="url(#successGradient)" opacity="0.9"/>
+      <circle cx="60" cy="130" r="2.5" fill="url(#primaryGradient)" opacity="0.9"/>
+
+      <circle cx="180" cy="120" r="4" fill="url(#accentGradient)" opacity="0.7"/>
+      <circle cx="180" cy="110" r="3" fill="url(#successGradient)" opacity="0.7"/>
+      <circle cx="180" cy="130" r="2.5" fill="url(#primaryGradient)" opacity="0.7"/>
+
+      <!-- Document Transformation Metaphor -->
+      <!-- Input Document Icon -->
+      <rect x="65" y="70" width="20" height="24" rx="3" fill="#94a3b8" opacity="0.6"/>
+      
+      <!-- Rough content lines -->
+      <line x1="68" y1="76" x2="78" y2="76" stroke="#94a3b8" stroke-width="1.5" opacity="0.7"/>
+      <line x1="68" y1="80" x2="75" y2="80" stroke="#94a3b8" stroke-width="1.5" opacity="0.7"/>
+
+      <!-- Output Document Icon -->
+      <rect x="175" y="70" width="20" height="24" rx="3" fill="url(#primaryGradient)" opacity="1"/>
+
+      <!-- Polished content lines -->
+      <rect x="178" y="75" width="14" height="1.5" rx="0.75" fill="white" opacity="1"/>
+      <rect x="178" y="78" width="14" height="1.5" rx="0.75" fill="white" opacity="1"/>
+      <rect x="178" y="81" width="10" height="1.5" rx="0.75" fill="white" opacity="1"/>
+
+      <!-- Floating Enhancement Indicators -->
+      <circle cx="90" cy="90" r="3" fill="url(#accentGradient)" opacity="0.8"/>
+      <circle cx="150" cy="95" r="2.5" fill="url(#successGradient)" opacity="0.8"/>
+      <circle cx="85" cy="155" r="2.8" fill="#fbbf24" opacity="0.8"/>
+      <circle cx="155" cy="150" r="3.2" fill="url(#primaryGradient)" opacity="0.8"/>
+
+      <!-- Pulse Ring Effect - Static -->
+      <circle cx="120" cy="120" r="18" fill="none" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.5"/>
+      <circle cx="120" cy="120" r="25" fill="none" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Main Title and Content -->
+  <text x="420" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#fff">
     Note Transformer
-</text><text x="320" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="400" fill="#94a3b8">
+  </text>
+
+  <text x="420" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="400" fill="#94a3b8">
     AI-Powered Note Enhancement
-</text><text x="320" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="300" fill="#64748b">
+  </text>
+
+  <text x="420" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="300" fill="#64748b">
     Transform raw notes into polished, professional formats
-</text><g transform="translate(320 360)"><circle cx="8" cy="8" r="4" fill="#10b981"/><text x="25" y="13" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#e2e8f0">Interview Notes</text></g><g transform="translate(320 400)"><circle cx="8" cy="8" r="4" fill="#3b82f6"/><text x="25" y="13" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#e2e8f0">Meeting Summaries</text></g><g transform="translate(320 440)"><circle cx="8" cy="8" r="4" fill="#8b5cf6"/><text x="25" y="13" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#e2e8f0">Custom Formats</text></g></svg>
+  </text>
+
+  <!-- Feature List -->
+  <g transform="translate(420, 380)">
+    <circle cx="8" cy="8" r="5" fill="url(#successGradient)"/>
+    <text x="30" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">Interview Notes</text>
+  </g>
+
+  <g transform="translate(420, 420)">
+    <circle cx="8" cy="8" r="5" fill="url(#accentGradient)"/>
+    <text x="30" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">Meeting Summaries</text>
+  </g>
+
+  <g transform="translate(420, 460)">
+    <circle cx="8" cy="8" r="5" fill="url(#primaryGradient)"/>
+    <text x="30" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">Custom Formats</text>
+  </g>
+
+  <!-- Bottom Right Decorative Element -->
+  <g transform="translate(1000, 450)" opacity="0.15">
+    <circle cx="0" cy="0" r="80" fill="url(#primaryGradient)" opacity="0.1"/>
+    <circle cx="0" cy="0" r="12" fill="url(#primaryGradient)" opacity="0.8"/>
+    <polygon points="0,-18 12,-6 12,18 0,24 -12,18 -12,-6" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+    <polygon points="0,-12 8,-4 8,12 0,16 -8,12 -8,-4" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- Additional AI Particles -->
+  <circle cx="800" cy="150" r="3" fill="url(#accentGradient)" opacity="0.6"/>
+  <circle cx="950" cy="200" r="2.5" fill="url(#successGradient)" opacity="0.6"/>
+  <circle cx="1150" cy="250" r="2" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="750" cy="500" r="3.5" fill="url(#primaryGradient)" opacity="0.6"/>
+</svg>
