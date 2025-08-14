@@ -31,15 +31,6 @@
     "ai-powered",
     "text-transformation"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./styles": {
-      "import": "./dist/style.css"
-    }
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -54,12 +45,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx,css,html}\"",
     "format": "prettier --write \"**/*.{ts,tsx,mdx,css,html}\"",
     "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
-    "lint:fix": "pnpm run lint --fix",
-    "prepublishOnly": "pnpm lint",
-    "release": "cross-env CI=true pnpm run build",
-    "postrelease": "standard-version && pnpm publish --access public && git push --follow-tags origin master",
-    "release:beta": "pnpm run build",
-    "postrelease:beta": "standard-version --prerelease beta && pnpm publish --access public --tag beta && git push --follow-tags origin master"
+    "lint:fix": "pnpm run lint --fix"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.6",
