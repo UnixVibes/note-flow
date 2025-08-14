@@ -42,7 +42,7 @@ export function Header({ onSettingsChange }: HeaderProps) {
               className="h-auto p-0 text-sm"
             >
               <a
-                href="https://github.com/alimaster/note-transformer"
+                href="https://github.com/ali-master/note-transformer"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
