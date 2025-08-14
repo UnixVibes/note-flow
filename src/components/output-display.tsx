@@ -2,6 +2,7 @@ import { Copy, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { t } from "../lib/translations";
+import { MemoizedMarkdown } from "./memoized-markdown.tsx";
 
 interface OutputDisplayProps {
   output: string;
@@ -30,7 +31,7 @@ export function OutputDisplay({ output, onCopy }: OutputDisplayProps) {
         <div className="min-h-[300px] sm:min-h-[400px] p-3 sm:p-4 bg-muted rounded-lg border">
           {output ? (
             <div className="whitespace-pre-wrap text-foreground leading-relaxed text-sm sm:text-base">
-              {output}
+              <MemoizedMarkdown content={output} />
             </div>
           ) : (
             <div className="text-muted-foreground text-center py-16 sm:py-20">

@@ -1,6 +1,6 @@
 import { generateText } from "ai";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import type { NoteType, NoteContext } from "./data";
+import type { NoteContext, NoteType } from "./data";
 
 export interface GeminiSettings {
   model: string;
@@ -10,7 +10,6 @@ export interface GeminiSettings {
 export const GEMINI_MODELS = [
   "gemini-1.5-pro",
   "gemini-1.5-flash",
-  "gemini-1.5-flash-8b",
   "gemini-pro",
 ];
 
@@ -51,7 +50,7 @@ export function getTransformationPrompt(
     .map(([key, value]) => `${key}: ${value}`)
     .join(", ");
 
-  const basePrompt = `Transform the following raw notes into a professional ${finalUseCase} format. 
+  return `Transform the following raw notes into a professional ${finalUseCase} format.
 
 Context: ${contextString}
 
@@ -66,8 +65,6 @@ Instructions:
 - Keep the tone appropriate for the intended use case
 
 Format the output as a ${finalUseCase} would appear in a professional setting.`;
-
-  return basePrompt;
 }
 
 export async function getAIResponse(prompt: string): Promise<string> {

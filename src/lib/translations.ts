@@ -3,7 +3,6 @@ export const TRANSLATIONS = {
   appDescription: "Transform raw notes into polished, professional formats",
   interviewNotes: "Interview Notes",
   meetingNotes: "Meeting Notes",
-  input: "Input",
   context: "Context",
   position: "Position",
   candidateName: "Candidate Name",

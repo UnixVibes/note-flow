@@ -1,7 +1,6 @@
 import { Input } from "./ui/input";
 import type { NoteType, NoteContext } from "../lib/data";
 import { contextFields } from "../lib/data";
-import { t } from "../lib/translations";
 
 interface ContextFormProps {
   noteType: NoteType;
@@ -16,7 +15,6 @@ export function ContextForm({
 }: ContextFormProps) {
   return (
     <div className="space-y-4 mb-6">
-      <h3 className="text-lg font-medium text-foreground">{t("context")}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {contextFields[noteType].map((field) => {
           const Icon = field.icon;
