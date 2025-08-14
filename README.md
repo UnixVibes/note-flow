@@ -1,17 +1,9 @@
-# Note Transformer
-
 <div align="center">
   <img src="./public/icon.svg" alt="Note Transformer" width="120" height="120">
   
-  **AI-Powered Note Enhancement**
+  **Note Transformer | AI-Powered Note Enhancement**
   
   Transform raw notes into polished, professional formats instantly
-  
-  [![🚀 Live Demo](https://img.shields.io/badge/🚀_Live_Demo-4f46e5?style=for-the-badge&logoColor=white)](https://note-transformer.usestrict.dev/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org/)
-  [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-  [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
   
   ### [🌟 Try it now →](https://note-transformer.usestrict.dev/)
 </div>
