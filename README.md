@@ -6,6 +6,8 @@
   Transform raw notes into polished, professional formats instantly
   
   ### [🌟 Try it now →](https://note-transformer.usestrict.dev/)
+  
+  <img src="./assets/demo.png" alt="Note Transformer Demo" width="800">
 </div>
 
 ## ✨ Features
