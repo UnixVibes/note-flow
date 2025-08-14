@@ -110,9 +110,6 @@ export default defineConfig({
             "@radix-ui/react-tabs",
           ],
 
-          // Vercel libraries
-          "vercel-chunk": ["@vercel/analytics", "@vercel/speed-insights"],
-
           // UI libraries & animations
           "ui-chunk": ["clsx", "framer-motion", "tailwind-merge"],
         },

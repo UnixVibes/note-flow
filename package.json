@@ -102,6 +102,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.11",
+    "typescript": "^5.9.2",
     "vite": "^7.1.2",
     "vite-plugin-preload": "^0.4.2",
     "vite-plugin-pwa": "^1.0.2"
