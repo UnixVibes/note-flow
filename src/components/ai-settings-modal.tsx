@@ -19,8 +19,8 @@ import {
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import type { GeminiSettings } from "../lib/ai";
 import {
-  GeminiSettings,
   GEMINI_MODELS,
   getGeminiSettings,
   saveGeminiSettings,

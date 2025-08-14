@@ -1,7 +1,8 @@
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { t } from "../lib/translations";
-import { sampleData, type NoteType } from "../lib/data";
+import { sampleData } from "../lib/data";
+import type { NoteType } from "../lib/data";
 import { Lightbulb } from "lucide-react";
 
 interface NotesInputProps {
@@ -11,11 +12,16 @@ interface NotesInputProps {
   onContextChange: (field: string, value: string) => void;
 }
 
-export function NotesInput({ rawNotes, onNotesChange, noteType, onContextChange }: NotesInputProps) {
+export function NotesInput({
+  rawNotes,
+  onNotesChange,
+  noteType,
+  onContextChange,
+}: NotesInputProps) {
   const handleLoadSample = () => {
     const sample = sampleData[noteType];
     onNotesChange(sample.notes);
-    
+
     // Update context fields
     Object.entries(sample.context).forEach(([key, value]) => {
       onContextChange(key, value);

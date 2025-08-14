@@ -1,5 +1,6 @@
 import { Input } from "./ui/input";
-import { NoteType, NoteContext, contextFields } from "../lib/data";
+import type { NoteType, NoteContext } from "../lib/data";
+import { contextFields } from "../lib/data";
 import { t } from "../lib/translations";
 
 interface ContextFormProps {

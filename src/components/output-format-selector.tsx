@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
-import { NoteType, useCaseOptions } from "../lib/data";
+import type { NoteType } from "../lib/data";
+import { useCaseOptions } from "../lib/data";
 import { t } from "../lib/translations";
 
 interface OutputFormatSelectorProps {

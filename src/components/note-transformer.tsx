@@ -97,8 +97,8 @@ export function NoteTransformer() {
                   onContextChange={handleContextChange}
                 />
 
-                <NotesInput 
-                  rawNotes={rawNotes} 
+                <NotesInput
+                  rawNotes={rawNotes}
                   onNotesChange={setRawNotes}
                   noteType={noteType}
                   onContextChange={handleContextChange}
