@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { t } from "../lib/translations";
 import { AISettingsModal } from "./ai-settings-modal";
 import { AnimatedLogo } from "./animated-logo";
+import { ThemeToggle } from "./theme-toggle";
 
 interface HeaderProps {
   onSettingsChange?: () => void;
@@ -26,6 +27,7 @@ export function Header({ onSettingsChange }: HeaderProps) {
 
         <div className="flex flex-col sm:items-end gap-3">
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <AISettingsModal onSettingsChange={onSettingsChange} />
           </div>
 

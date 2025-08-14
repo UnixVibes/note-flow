@@ -74,7 +74,8 @@ export function AnimatedLogo() {
           width="60"
           height="80"
           rx="4"
-          fill="white"
+          fill="currentColor"
+          className="text-background"
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 70, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -196,7 +197,8 @@ export function AnimatedLogo() {
           width="60"
           height="80"
           rx="4"
-          fill="white"
+          fill="currentColor"
+          className="text-background"
           initial={{ x: 135, opacity: 0 }}
           animate={{ x: 115, opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
