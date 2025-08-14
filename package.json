@@ -1,7 +1,7 @@
 {
   "name": "@usex/note-transformer",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": false,
   "description": "Transform raw notes into polished, professional formats instantly. AI-powered note enhancement for interviews, meetings, and custom formats using Google's Gemini AI.",
   "author": {
@@ -31,6 +31,15 @@
     "ai-powered",
     "text-transformation"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles": {
+      "import": "./dist/style.css"
+    }
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -45,7 +54,10 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx,css,html}\"",
     "format": "prettier --write \"**/*.{ts,tsx,mdx,css,html}\"",
     "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
-    "lint:fix": "pnpm run lint --fix"
+    "lint:fix": "pnpm run lint --fix",
+    "prepublishOnly": "pnpm lint",
+    "release": "standard-version && git push --follow-tags origin master",
+    "release:beta": "standard-version --prerelease beta && git push --follow-tags origin master"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.6",
@@ -87,6 +99,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.9.2",
     "vite": "^7.1.2",

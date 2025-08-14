@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 import million from "million/compiler";
 import preload from "vite-plugin-preload";
+import { version as appVersion } from "./package.json";
 
 const isDev = process.env.NODE_ENV === "development";
 const mode = isDev ? "development" : "production";
@@ -98,6 +99,9 @@ export default defineConfig({
   },
   css: {
     devSourcemap: true,
+  },
+  define: {
+    __APP_VERSION__: JSON.stringify(appVersion || "0.0.0"),
   },
   build: {
     target: "es2015",

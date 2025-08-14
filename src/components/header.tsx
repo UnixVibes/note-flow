@@ -20,7 +20,10 @@ export function Header({ onSettingsChange }: HeaderProps) {
           <AnimatedLogo />
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-              {t("app.title")}
+              {t("app.title")}{" "}
+              <sub className="text-sm sm:text-base text-muted-foreground">
+                {__APP_VERSION__}
+              </sub>
             </h1>
             <p className="text-sm sm:text-base text-muted-foreground">
               {t("app.description")}
