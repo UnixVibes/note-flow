@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/icon.svg" alt="Note Transformer" width="120" height="120">
+  <img src="./public/icon.svg" alt="Note Transformer" width="220" height="220">
   
   **Note Transformer | AI-Powered Note Enhancement**
   
