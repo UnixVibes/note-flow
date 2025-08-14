@@ -1,7 +1,7 @@
 {
   "name": "@usex/note-transformer",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "description": "Transform raw notes into polished, professional formats instantly. AI-powered note enhancement for interviews, meetings, and custom formats using Google's Gemini AI.",
   "author": {
