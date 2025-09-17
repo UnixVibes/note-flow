@@ -64,9 +64,5 @@
     "select": "Select Language",
     "english": "English",
     "thai": "ไทย"
-  },
-  "footer": {
-    "builtBy": "Built by",
-    "viewOnGithub": "View on GitHub"
   }
 }
