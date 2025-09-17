@@ -1,5 +1,5 @@
 {
-  "name": "@usex/note-transformer",
+  "name": "@usex/noteflow",
   "type": "module",
   "version": "1.1.0",
   "private": false,
@@ -14,6 +14,7 @@
     "url": "git+https://github.com/ali-master/note-transformer.git"
   },
   "keywords": [
+    "noteflow",
     "note-transformer",
     "ai-notes",
     "note-enhancement",

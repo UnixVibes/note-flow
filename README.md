@@ -1,13 +1,13 @@
 <div align="center">
-  <img src="./public/icon.svg" alt="Note Transformer" width="220" height="220">
-  
-  **Note Transformer | AI-Powered Note Enhancement**
-  
+  <img src="./public/icon.svg" alt="NoteFlow" width="220" height="220">
+
+  **NoteFlow | AI-Powered Note Enhancement**
+
   Transform raw notes into polished, professional formats instantly
-  
+
   ### [🌟 Try it now →](https://note-transformer.usestrict.dev/)
-  
-  <img src="./assets/demo.png" alt="Note Transformer Demo" width="800">
+
+  <img src="./assets/demo.png" alt="NoteFlow Demo" width="800">
 </div>
 
 ## ✨ Features
@@ -82,8 +82,14 @@ pnpm preview
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## 👨‍💻 Fork Information
 
-**Ali Torki**
+This is a fork of the original Note Transformer project.
+
+**Original Author: Ali Torki**
 - GitHub: [@ali-master](https://github.com/ali-master)
-- Email: ali_4286@live.com
+- Original Repository: [note-transformer](https://github.com/ali-master/note-transformer)
+
+**Fork Maintainer**
+- GitHub: [@naiplawan](https://github.com/naiplawan)
+- Fork Repository: [noteflow](https://github.com/naiplawan/note-transformer)

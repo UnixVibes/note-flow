@@ -1,6 +1,6 @@
 {
-  "name": "Note Transformer",
-  "short_name": "Note Transformer",
+  "name": "NoteFlow",
+  "short_name": "NoteFlow",
   "description": "Transform your raw notes into professional, polished formats",
   "start_url": "/",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "theme_color": "#4f46e5",
   "orientation": "portrait-primary",
   "scope": "/",
-  "id": "note-transformer",
+  "id": "noteflow",
   "icons": [
     {
       "src": "/splash_screens/icon.png",
