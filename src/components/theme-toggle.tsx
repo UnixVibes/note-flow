@@ -1,5 +1,7 @@
+"use client"
+
 import { Sun, Moon, Monitor } from "lucide-react";
-import { useTheme } from "./theme-provider";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
 import { isRTL } from "../lib/i18n";

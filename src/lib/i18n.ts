@@ -29,24 +29,27 @@ i18n
     },
   })
   .then(() => {
-    // Set initial document direction based on language
-    const dir = "ltr";
-    document.documentElement.setAttribute("dir", dir);
-    document.documentElement.setAttribute("lang", i18n.language);
+    // Only run document manipulation on client side
+    if (typeof window !== 'undefined') {
+      // Set initial document direction based on language
+      const dir = "ltr";
+      document.documentElement.setAttribute("dir", dir);
+      document.documentElement.setAttribute("lang", i18n.language);
 
-    // update metadata for SEO
-    document.title = i18n.t("app.title");
-    // Update Open Graph locale meta tag
-    const metaLocale = document.querySelector('meta[property="og:locale"]');
-    if (metaLocale) {
-      const localeMap: Record<string, string> = {
-        th: "th_TH",
-        en: "en_US"
-      };
-      metaLocale.setAttribute(
-        "content",
-        localeMap[i18n.language] || "en_US",
-      );
+      // update metadata for SEO
+      document.title = i18n.t("app.title");
+      // Update Open Graph locale meta tag
+      const metaLocale = document.querySelector('meta[property="og:locale"]');
+      if (metaLocale) {
+        const localeMap: Record<string, string> = {
+          th: "th_TH",
+          en: "en_US"
+        };
+        metaLocale.setAttribute(
+          "content",
+          localeMap[i18n.language] || "en_US",
+        );
+      }
     }
   });
 

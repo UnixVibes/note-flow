@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "NoteFlow",
+    "description": "Transform your raw notes into polished, professional formats"
+  },
+  "noteType": {
+    "interview": "Interview",
+    "meeting": "Meeting",
+    "selectType": "Select Note Type"
+  },
+  "context": {
+    "title": "Context",
+    "subject": "Subject (Interview, Meeting, etc.)",
+    "position": "Position (Software Engineer, Product Manager, etc.)",
+    "candidate": "Candidate Name (John Doe, Jane Smith, etc.)",
+    "interviewType": "Interview Type (Technical, HR, etc.)",
+    "duration": "Duration (30 mins, 1 hour, etc.)",
+    "meetingTitle": "Meeting Title (Weekly Sync, Project Kickoff, etc.)",
+    "attendees": "Attendees (Team Members, Stakeholders, etc.)",
+    "date": "Date (YYYY-MM-DD format)"
+  },
+  "input": {
+    "title": "Input",
+    "rawNotes": "Raw Notes",
+    "rawNotesPlaceholder": "Paste or type your raw notes here...",
+    "loadSample": "Load Sample",
+    "outputFormat": "Output Format",
+    "selectFormat": "Select output format"
+  },
+  "output": {
+    "title": "Output",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "placeholder": "Your transformed notes will appear here",
+    "transforming": "Transforming...",
+    "transform": "Transform Notes"
+  },
+  "formats": {
+    "evaluation": "Evaluation Scorecard",
+    "slack": "Slack Update",
+    "email": "Email Summary",
+    "googledoc": "Google Doc",
+    "discord": "Discord Message"
+  },
+  "settings": {
+    "title": "AI Settings",
+    "description": "Configure your Google Gemini API settings",
+    "apiKey": "API Key",
+    "apiKeyPlaceholder": "Enter your Google AI API key",
+    "apiKeyDescription": "Get your API key from Google AI Studio",
+    "apiKeySecurity": "Your key is stored locally and never shared.",
+    "model": "Model",
+    "selectModel": "Select a model",
+    "save": "Save Settings",
+    "cancel": "Cancel"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "thai": "ไทย"
+  }
+}

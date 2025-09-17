@@ -1,5 +1,9 @@
-/// <reference types="vite/client" />
-/// <reference types="vite/types/importMeta.d.ts" />
-/// <reference types="vite-plugin-pwa/client" />
+/// <reference types="next" />
+/// <reference types="next/image-types/global" />
 
-declare const __APP_VERSION__: string;
+// Next.js environment variables
+declare namespace NodeJS {
+  interface ProcessEnv {
+    readonly NEXT_PUBLIC_GOOGLE_API_KEY?: string;
+  }
+}

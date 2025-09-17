@@ -1,3 +1,5 @@
+"use client"
+
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";

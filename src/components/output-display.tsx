@@ -1,8 +1,10 @@
+"use client"
+
 import { Copy, FileText, Loader2, Check } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { useTranslation } from "react-i18next";
-import { MemoizedMarkdown } from "./memoized-markdown.tsx";
+import { MemoizedMarkdown } from "./memoized-markdown";
 import { StreamingText } from "./streaming-text";
 import { useState } from "react";
 

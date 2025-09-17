@@ -1,3 +1,5 @@
+"use client"
+
 import { Input } from "./ui/input";
 import { useTranslation } from "react-i18next";
 import type { NoteType, NoteContext } from "../lib/data";

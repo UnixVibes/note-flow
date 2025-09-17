@@ -1,3 +1,4 @@
+import React from "react";
 import {
   FileText,
   MessageSquare,
@@ -16,13 +17,13 @@ export type NoteType = "interview" | "meeting";
 export interface ContextField {
   key: string;
   label: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 export interface UseCaseOption {
   value: string;
   label: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 export interface NoteContext {

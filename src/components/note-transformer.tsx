@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useTransition } from "react";
 import type { NoteType, NoteContext } from "../lib/data";
 import { getAIStreamResponse, getTransformationPrompt } from "../lib/ai";

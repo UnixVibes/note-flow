@@ -1,8 +1,11 @@
+"use client"
+
 import { useTranslation } from "react-i18next";
 import { AISettingsModal } from "./ai-settings-modal";
 import { AnimatedLogo } from "./animated-logo";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSelector } from "./language-selector";
+import packageJson from "../../package.json";
 
 interface HeaderProps {
   onSettingsChange?: () => void;
@@ -20,7 +23,7 @@ export function Header({ onSettingsChange }: HeaderProps) {
             <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
               {t("app.title")}{" "}
               <sub className="text-sm sm:text-base text-muted-foreground">
-                {__APP_VERSION__}
+                v{packageJson.version}
               </sub>
             </h1>
             <p className="text-sm sm:text-base text-muted-foreground">

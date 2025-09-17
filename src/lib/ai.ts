@@ -17,10 +17,18 @@ export const GEMINI_MODELS = [
 const STORAGE_KEY = "gemini-settings";
 
 export function getGeminiSettings(): GeminiSettings {
+  // Try environment variable first
+  const envApiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
-      return JSON.parse(stored);
+      const settings = JSON.parse(stored);
+      // Use env API key if available, otherwise use stored key
+      return {
+        ...settings,
+        apiKey: envApiKey || settings.apiKey,
+      };
     }
   } catch (error) {
     console.error("Error loading Gemini settings:", error);
@@ -28,7 +36,7 @@ export function getGeminiSettings(): GeminiSettings {
 
   return {
     model: "gemini-1.5-flash",
-    apiKey: "",
+    apiKey: envApiKey || "",
   };
 }
 
@@ -110,7 +118,7 @@ export function getTransformationPrompt(
 ): string {
   const currentContext = context[noteType];
   const contextString = Object.entries(currentContext)
-    .filter(([_, value]) => value) // Only include non-empty values
+    .filter(([, value]) => value) // Only include non-empty values
     .map(([key, value]) => `${key}: ${value}`)
     .join(", ");
 
@@ -185,7 +193,7 @@ export async function getAIResponse(prompt: string): Promise<string> {
       prompt,
       temperature: 0.7, // Balanced creativity and consistency
       topK: 40, // Good diversity without randomness
-      maxOutputTokens: 2048, // Reasonable length for professional documents
+      maxTokens: 2048, // Reasonable length for professional documents
     });
 
     return text;
@@ -217,13 +225,13 @@ export async function getAIStreamResponse(
     const currentLang = i18n.language || "en";
     const systemPrompt = getSystemPrompt(currentLang);
 
-    const result = streamText({
+    const result = await streamText({
       model: google(settings.model),
       system: systemPrompt,
       prompt,
       temperature: 0.7, // Balanced creativity and consistency
       topK: 40, // Good diversity without randomness
-      maxOutputTokens: 2048, // Reasonable length for professional documents
+      maxTokens: 2048, // Reasonable length for professional documents
     });
 
     let fullText = "";
