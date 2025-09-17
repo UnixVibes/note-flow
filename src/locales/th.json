@@ -39,7 +39,8 @@
     "evaluation": "บัตรคะแนนการประเมิน",
     "slack": "อัปเดต Slack",
     "email": "สรุปอีเมล",
-    "googledoc": "Google Doc"
+    "googledoc": "Google Doc",
+    "discord": "ข้อความ Discord"
   },
   "settings": {
     "title": "การตั้งค่า AI",

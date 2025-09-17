@@ -7,6 +7,7 @@ import {
   User,
   Building,
   MousePointerClick,
+  MessageCircle,
 } from "lucide-react";
 import i18n from "./i18n";
 
@@ -44,11 +45,13 @@ export const useCaseOptions: Record<NoteType, UseCaseOption[]> = {
     { value: "evaluation", label: "Evaluation Scorecard", icon: FileText },
     { value: "slack", label: "Slack Update", icon: MessageSquare },
     { value: "email", label: "Email Summary", icon: Mail },
+    { value: "discord", label: "Discord Message", icon: MessageCircle },
   ],
   meeting: [
     { value: "googledoc", label: "Google Doc", icon: FileText },
     { value: "slack", label: "Slack Update", icon: MessageSquare },
     { value: "email", label: "Email Summary", icon: Mail },
+    { value: "discord", label: "Discord Message", icon: MessageCircle },
   ],
 };
 

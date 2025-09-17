@@ -40,6 +40,34 @@ export function saveGeminiSettings(settings: GeminiSettings): void {
   }
 }
 
+function getFormatSpecificInstructions(format: string, language: string): string {
+  const isEnglish = language === "en";
+
+  const instructions: Record<string, string> = {
+    "evaluation": isEnglish
+      ? "Structure as a formal evaluation with clear sections: Summary, Strengths, Areas for Improvement, Recommendations, and Overall Rating/Score"
+      : "จัดโครงสร้างเป็นการประเมินอย่างเป็นทางการ ด้วยส่วนที่ชัดเจน: สรุป, จุดแข็ง, ข้อที่ควรปรับปรุง, คำแนะนำ, และคะแนนรวม",
+
+    "slack": isEnglish
+      ? "Format for Slack with casual yet professional tone, use bullet points, emojis where appropriate, and keep concise for team updates"
+      : "จัดรูปแบบสำหรับ Slack ด้วยโทนที่เป็นกันเองแต่เป็นมืออาชีพ ใช้จุดหัวข้อ emoji ที่เหมาะสม และให้กระชับสำหรับการอัปเดตทีม",
+
+    "email": isEnglish
+      ? "Structure as professional email with subject line, greeting, clear paragraphs with key points, action items, and appropriate closing"
+      : "จัดโครงสร้างเป็นอีเมลที่เป็นมืออาชีพ มีหัวข้อ การทักทาย ย่อหน้าที่ชัดเจนพร้อมประเด็นสำคัญ รายการที่ต้องดำเนินการ และการปิดที่เหมาะสม",
+
+    "googledoc": isEnglish
+      ? "Format as comprehensive document with title, executive summary, detailed sections with headers, numbered lists, and proper document structure"
+      : "จัดรูปแบบเป็นเอกสารที่ครอบคลุม มีชื่อเรื่อง สรุปสำหรับผู้บริหาร ส่วนรายละเอียดพร้อมหัวข้อ รายการตัวเลข และโครงสร้างเอกสารที่เหมาะสม",
+
+    "discord": isEnglish
+      ? "Format for Discord with professional yet accessible tone suitable for corporate communication, use Discord markdown formatting, and structure for easy reading in chat channels"
+      : "จัดรูปแบบสำหรับ Discord ด้วยโทนที่เป็นทางการแต่เข้าถึงได้ เหมาะสมสำหรับการสื่อสารในบริษัท ใช้ Discord markdown formatting และจัดโครงสร้างให้อ่านง่ายในช่องแชท"
+  };
+
+  return instructions[format] || "";
+}
+
 function getSystemPrompt(language: string): string {
   if (language === "th") {
     return `คุณเป็นผู้ช่วยแปลงโน้ตเอกสารมืออาชีพ ความเชี่ยวชาญของคุณรวมถึง:
@@ -87,6 +115,7 @@ export function getTransformationPrompt(
     .join(", ");
 
   const currentLang = i18n.language || "en";
+  const formatInstructions = getFormatSpecificInstructions(finalUseCase, currentLang);
 
   if (currentLang === "th") {
     return `แปลงโน้ตดิบต่อไปนี้เป็นรูปแบบ ${finalUseCase} ที่เป็นมืออาชีพ
@@ -96,15 +125,17 @@ export function getTransformationPrompt(
 โน้ตดิบ:
 ${rawNotes}
 
-ข้อกำหนด:
+ข้อกำหนดทั่วไป:
 - ขยายตัวย่อทั้งหมดอย่างเป็นธรรมชาติ (เช่น ปร. → ประชุม, สก. → สัมภาษณ์, ฯลฯ)
 - รักษาความหมายและเนื้อหาที่เป็นข้อเท็จจริงเดิม
-- จัดโครงสร้างให้เหมาะสมกับรูปแบบ ${finalUseCase}
 - ใช้ภาษาที่เป็นมืออาชีพในขณะที่รักษารายละเอียดสำคัญทั้งหมด
 - รักษาโทนให้เหมาะสมกับกรณีการใช้งานที่ตั้งใจ
 - รวมข้อมูลที่เกี่ยวข้องทั้งหมดจากโน้ตดิบ
 - จัดรูปแบบโดยใช้ markdown ที่เหมาะสมด้วยหัวข้อ รายการ และการเน้นตามความเหมาะสม
 - ตอบกลับเป็นภาษาไทย
+
+ข้อกำหนดเฉพาะรูปแบบ:
+${formatInstructions}
 
 สร้าง ${finalUseCase} ที่สมบูรณ์และเป็นมืออาชีพที่เหมาะสมสำหรับการใช้งานทันทีในสภาพแวดล้อมทางธุรกิจ`;
   } else {
@@ -115,15 +146,17 @@ Context: ${contextString}
 Raw Notes:
 ${rawNotes}
 
-Requirements:
+General Requirements:
 - Expand all abbreviations naturally (q → questions, w/ → with, exp → experience, etc.)
 - Maintain the original meaning and factual content
-- Structure appropriately for ${finalUseCase} format
 - Use professional language while preserving all key details
 - Keep the tone appropriate for the intended use case
 - Include all relevant information from the raw notes
 - Format using proper markdown with headers, lists, and emphasis where appropriate
 - Respond in English language
+
+Format-Specific Requirements:
+${formatInstructions}
 
 Generate a complete, professional ${finalUseCase} that would be suitable for immediate use in a business setting.`;
   }

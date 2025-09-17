@@ -39,7 +39,8 @@
     "evaluation": "Evaluation Scorecard",
     "slack": "Slack Update",
     "email": "Email Summary",
-    "googledoc": "Google Doc"
+    "googledoc": "Google Doc",
+    "discord": "Discord Message"
   },
   "settings": {
     "title": "AI Settings",
