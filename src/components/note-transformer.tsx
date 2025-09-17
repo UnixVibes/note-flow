@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import type { NoteType, NoteContext } from "../lib/data";
 import { getAIStreamResponse, getTransformationPrompt } from "../lib/ai";
 import { useTranslation } from "react-i18next";
@@ -33,6 +33,7 @@ export function NoteTransformer() {
   const [output, setOutput] = useState("");
   const [isTransforming, setIsTransforming] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const handleContextChange = (field: string, value: string) => {
     setContext((prev) => ({
@@ -60,13 +61,17 @@ export function NoteTransformer() {
       );
 
       await getAIStreamResponse(prompt, (streamedText) => {
-        setOutput(streamedText);
+        startTransition(() => {
+          setOutput(streamedText);
+        });
       });
     } catch (error) {
       console.error("Error transforming notes:", error);
-      setOutput(
-        `Error: ${error instanceof Error ? error.message : "Unable to transform notes. Please try again."}`,
-      );
+      startTransition(() => {
+        setOutput(
+          `Error: ${error instanceof Error ? error.message : "Unable to transform notes. Please try again."}`,
+        );
+      });
     } finally {
       setIsTransforming(false);
       setIsStreaming(false);
@@ -120,8 +125,8 @@ export function NoteTransformer() {
 
                 <Button
                   onClick={transformNotes}
-                  disabled={!rawNotes.trim() || !finalUseCase || isTransforming}
-                  className="w-full"
+                  disabled={!rawNotes.trim() || !finalUseCase || isTransforming || isPending}
+                  className={`w-full ${isPending ? 'animate-pulse' : ''}`}
                   size="lg"
                 >
                   {isTransforming

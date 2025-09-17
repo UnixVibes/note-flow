@@ -41,9 +41,22 @@ export function saveGeminiSettings(settings: GeminiSettings): void {
 }
 
 function getSystemPrompt(language: string): string {
-  const isEnglish = language === "en";
+  if (language === "th") {
+    return `คุณเป็นผู้ช่วยแปลงโน้ตเอกสารมืออาชีพ ความเชี่ยวชาญของคุณรวมถึง:
+- แปลงโน้ตดิบและไม่มีโครงสร้างให้เป็นเอกสารที่เป็นมืออาชีพและเรียบร้อย
+- เข้าใจบริบทและความตั้งใจจากข้อความที่เป็นตัวย่อ
+- รักษาความถูกต้องในขณะที่เพิ่มความชัดเจนและโครงสร้าง
+- ปรับโทนและรูปแบบให้เหมาะสมกับบริบททางอาชีพที่แตกต่างกัน
+- จัดระเบียบข้อมูลอย่างมีเหตุผลด้วยหัวข้อและส่วนที่เหมาะสม
 
-  if (isEnglish) {
+ผลลัพธ์ของคุณควรจะ:
+1. มีโครงสร้างที่ดีด้วยส่วนและหัวข้อที่ชัดเจน
+2. มีโทนที่เป็นมืออาชีพแต่เข้าถึงได้
+3. ครอบคลุมโดยไม่ใช้คำมากเกินไป
+4. จัดรูปแบบโดยใช้ไวยากรณ์ markdown ที่เหมาะสม
+5. ถูกต้องตามเนื้อหาต้นฉบับในขณะที่เพิ่มความสามารถในการอ่าน
+6. ตอบกลับเป็นภาษาไทยเสมอ`;
+  } else {
     return `You are a professional note transformation assistant. Your expertise includes:
 - Converting raw, unstructured notes into polished, professional documents
 - Understanding context and intent from abbreviated text
@@ -58,21 +71,6 @@ Your output should be:
 4. Formatted using proper markdown syntax
 5. Accurate to the original content while enhancing readability
 6. Always respond in English language`;
-  } else {
-    return `شما یک دستیار حرفه‌ای تبدیل یادداشت هستید. تخصص‌های شما شامل:
-- تبدیل یادداشت‌های خام و غیرساختارمند به اسناد حرفه‌ای و منظم
-- درک زمینه و هدف از متن‌های مخفف
-- حفظ دقت در عین بهبود وضوح و ساختار
-- تطبیق لحن و فرمت برای زمینه‌های حرفه‌ای مختلف
-- سازماندهی منطقی اطلاعات با عناوین و بخش‌های مناسب
-
-خروجی شما باید:
-1. ساختار مناسب با بخش‌ها و عناوین واضح داشته باشد
-2. لحن حرفه‌ای و در عین حال قابل فهم باشد
-3. جامع بدون پرگویی باشد
-4. با استفاده از syntax مناسب markdown فرمت شود
-5. دقیق نسبت به محتوای اصلی و در عین حال خوانایی را بهبود دهد
-6. همیشه به زبان فارسی پاسخ دهید`;
   }
 }
 
@@ -89,9 +87,27 @@ export function getTransformationPrompt(
     .join(", ");
 
   const currentLang = i18n.language || "en";
-  const isEnglish = currentLang === "en";
 
-  if (isEnglish) {
+  if (currentLang === "th") {
+    return `แปลงโน้ตดิบต่อไปนี้เป็นรูปแบบ ${finalUseCase} ที่เป็นมืออาชีพ
+
+บริบท: ${contextString}
+
+โน้ตดิบ:
+${rawNotes}
+
+ข้อกำหนด:
+- ขยายตัวย่อทั้งหมดอย่างเป็นธรรมชาติ (เช่น ปร. → ประชุม, สก. → สัมภาษณ์, ฯลฯ)
+- รักษาความหมายและเนื้อหาที่เป็นข้อเท็จจริงเดิม
+- จัดโครงสร้างให้เหมาะสมกับรูปแบบ ${finalUseCase}
+- ใช้ภาษาที่เป็นมืออาชีพในขณะที่รักษารายละเอียดสำคัญทั้งหมด
+- รักษาโทนให้เหมาะสมกับกรณีการใช้งานที่ตั้งใจ
+- รวมข้อมูลที่เกี่ยวข้องทั้งหมดจากโน้ตดิบ
+- จัดรูปแบบโดยใช้ markdown ที่เหมาะสมด้วยหัวข้อ รายการ และการเน้นตามความเหมาะสม
+- ตอบกลับเป็นภาษาไทย
+
+สร้าง ${finalUseCase} ที่สมบูรณ์และเป็นมืออาชีพที่เหมาะสมสำหรับการใช้งานทันทีในสภาพแวดล้อมทางธุรกิจ`;
+  } else {
     return `Transform the following raw notes into a professional ${finalUseCase} format.
 
 Context: ${contextString}
@@ -110,25 +126,6 @@ Requirements:
 - Respond in English language
 
 Generate a complete, professional ${finalUseCase} that would be suitable for immediate use in a business setting.`;
-  } else {
-    return `یادداشت‌های خام زیر را به فرمت حرفه‌ای ${finalUseCase} تبدیل کنید.
-
-زمینه: ${contextString}
-
-یادداشت‌های خام:
-${rawNotes}
-
-الزامات:
-- تمام مخفف‌ها را به طور طبیعی کامل کنید
-- معنا و محتوای واقعی اصلی را حفظ کنید
-- ساختار مناسب برای فرمت ${finalUseCase} ایجاد کنید
-- از زبان حرفه‌ای استفاده کنید و تمام جزئیات کلیدی را حفظ کنید
-- لحن را متناسب با موردکاربرد در نظر بگیرید
-- تمام اطلاعات مرتبط از یادداشت‌های خام را شامل کنید
-- با استفاده از markdown مناسب با عناوین، فهرست‌ها و تأکیدات فرمت کنید
-- به زبان فارسی پاسخ دهید
-
-یک ${finalUseCase} کامل و حرفه‌ای تولید کنید که برای استفاده فوری در محیط کاری مناسب باشد.`;
   }
 }
 

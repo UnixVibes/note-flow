@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { getSampleData } from "../lib/data";
 import type { NoteType } from "../lib/data";
 import { Lightbulb } from "lucide-react";
+import { useTransition } from "react";
 
 interface NotesInputProps {
   rawNotes: string;
@@ -19,13 +20,17 @@ export function NotesInput({
   onContextChange,
 }: NotesInputProps) {
   const { t } = useTranslation();
-  const handleLoadSample = () => {
-    const sample = getSampleData(noteType);
-    onNotesChange(sample.notes);
+  const [isPending, startTransition] = useTransition();
 
-    // Update context fields
-    Object.entries(sample.context).forEach(([key, value]) => {
-      onContextChange(key, value);
+  const handleLoadSample = () => {
+    startTransition(() => {
+      const sample = getSampleData(noteType);
+      onNotesChange(sample.notes);
+
+      // Update context fields
+      Object.entries(sample.context).forEach(([key, value]) => {
+        onContextChange(key, value);
+      });
     });
   };
 
@@ -39,7 +44,8 @@ export function NotesInput({
           variant="outline"
           size="sm"
           onClick={handleLoadSample}
-          className="flex items-center gap-2 text-sm"
+          disabled={isPending}
+          className={`flex items-center gap-2 text-sm ${isPending ? 'animate-pulse' : ''}`}
         >
           <Lightbulb className="h-4 w-4" />
           {t("input.loadSample")}

@@ -3,6 +3,7 @@ import { useTheme } from "./theme-provider";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
 import { isRTL } from "../lib/i18n";
+import { useTransition } from "react";
 import {
   DropdownMenuTrigger,
   DropdownMenuItem,
@@ -14,19 +15,26 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation();
   const rtl = isRTL();
+  const [isPending, startTransition] = useTransition();
+
+  const handleThemeChange = (newTheme: "light" | "dark" | "system") => {
+    startTransition(() => {
+      setTheme(newTheme);
+    });
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Button variant="outline" size="icon" disabled={isPending}>
+          <Sun className={`h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 ${isPending ? 'animate-pulse' : ''}`} />
+          <Moon className={`absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 ${isPending ? 'animate-pulse' : ''}`} />
           <span className="sr-only">{t("theme.toggle")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align={rtl ? "start" : "end"}>
         <DropdownMenuItem
-          onClick={() => setTheme("light")}
+          onClick={() => handleThemeChange("light")}
           className="flex items-center gap-2"
         >
           <Sun className="h-4 w-4" />
@@ -36,7 +44,7 @@ export function ThemeToggle() {
           )}
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => setTheme("dark")}
+          onClick={() => handleThemeChange("dark")}
           className="flex items-center gap-2"
         >
           <Moon className="h-4 w-4" />
@@ -46,7 +54,7 @@ export function ThemeToggle() {
           )}
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => setTheme("system")}
+          onClick={() => handleThemeChange("system")}
           className="flex items-center gap-2"
         >
           <Monitor className="h-4 w-4" />

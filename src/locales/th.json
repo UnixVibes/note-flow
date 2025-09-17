@@ -1,0 +1,71 @@
+{
+  "app": {
+    "title": "แปลงโน้ต",
+    "description": "แปลงโน้ตเอกสารธรรมดาของคุณเป็นรูปแบบที่เป็นมืออาชีพ"
+  },
+  "noteType": {
+    "interview": "การสัมภาษณ์",
+    "meeting": "การประชุม",
+    "selectType": "เลือกประเภทโน้ต"
+  },
+  "context": {
+    "title": "บริบท",
+    "subject": "หัวข้อ (การสัมภาษณ์, การประชุม, ฯลฯ)",
+    "position": "ตำแหน่ง (วิศวกรซอฟต์แวร์, ผู้จัดการผลิตภัณฑ์, ฯลฯ)",
+    "candidate": "ชื่อผู้สมัคร (จอห์น โด, เจน สมิธ, ฯลฯ)",
+    "interviewType": "ประเภทการสัมภาษณ์ (เทคนิค, HR, ฯลฯ)",
+    "duration": "ระยะเวลา (30 นาที, 1 ชั่วโมง, ฯลฯ)",
+    "meetingTitle": "ชื่อการประชุม (ประชุมประจำสัปดาห์, เริ่มโครงการ, ฯลฯ)",
+    "attendees": "ผู้เข้าร่วม (สมาชิกทีม, ผู้มีส่วนได้ส่วนเสีย, ฯลฯ)",
+    "date": "วันที่ (รูปแบบ YYYY-MM-DD)"
+  },
+  "input": {
+    "title": "ข้อมูลนำเข้า",
+    "rawNotes": "โน้ตดิบ",
+    "rawNotesPlaceholder": "วางหรือพิมพ์โน้ตดิบของคุณที่นี่...",
+    "loadSample": "โหลดตัวอย่าง",
+    "outputFormat": "รูปแบบผลลัพธ์",
+    "selectFormat": "เลือกรูปแบบผลลัพธ์"
+  },
+  "output": {
+    "title": "ผลลัพธ์",
+    "copy": "คัดลอก",
+    "copied": "คัดลอกแล้ว!",
+    "placeholder": "โน้ตที่แปลงแล้วของคุณจะปรากฏที่นี่",
+    "transforming": "กำลังแปลง...",
+    "transform": "แปลงโน้ต"
+  },
+  "formats": {
+    "evaluation": "บัตรคะแนนการประเมิน",
+    "slack": "อัปเดต Slack",
+    "email": "สรุปอีเมล",
+    "googledoc": "Google Doc"
+  },
+  "settings": {
+    "title": "การตั้งค่า AI",
+    "description": "กำหนดค่าการตั้งค่า Google Gemini API ของคุณ",
+    "apiKey": "คีย์ API",
+    "apiKeyPlaceholder": "ใส่คีย์ Google AI API ของคุณ",
+    "apiKeyDescription": "รับคีย์ API ของคุณจาก Google AI Studio",
+    "apiKeySecurity": "คีย์ของคุณจะถูกเก็บไว้ในเครื่องและไม่เคยแชร์",
+    "model": "โมเดล",
+    "selectModel": "เลือกโมเดล",
+    "save": "บันทึกการตั้งค่า",
+    "cancel": "ยกเลิก"
+  },
+  "theme": {
+    "light": "สว่าง",
+    "dark": "มืด",
+    "system": "ระบบ",
+    "toggle": "สลับธีม"
+  },
+  "language": {
+    "select": "เลือกภาษา",
+    "english": "English",
+    "thai": "ไทย"
+  },
+  "footer": {
+    "builtBy": "สร้างโดย",
+    "viewOnGithub": "ดูใน GitHub"
+  }
+}

@@ -7,17 +7,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
 import { isRTL } from "../lib/i18n";
 
 const languages = [
   { code: "en", name: "English", nativeName: "English", flag: "🇬🇧" },
-  { code: "fa", name: "Persian", nativeName: "فارسی", flag: "🇮🇷" },
+  { code: "th", name: "Thai", nativeName: "ไทย", flag: "🇹🇭" },
 ];
 
 export function LanguageSelector() {
   const { i18n, t } = useTranslation();
   const rtl = isRTL();
+  const [isPending, startTransition] = useTransition();
 
   const updateDocumentDirection = (lng: string) => {
     const dir = lng === "fa" ? "rtl" : "ltr";
@@ -26,9 +27,11 @@ export function LanguageSelector() {
   };
 
   const changeLanguage = (lng: string) => {
-    void i18n.changeLanguage(lng);
-    // Update document direction
-    updateDocumentDirection(lng);
+    startTransition(() => {
+      void i18n.changeLanguage(lng);
+      // Update document direction
+      updateDocumentDirection(lng);
+    });
   };
 
   // Set initial direction based on current language
@@ -39,8 +42,8 @@ export function LanguageSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Globe className="h-[1.2rem] w-[1.2rem]" />
+        <Button variant="outline" size="icon" disabled={isPending}>
+          <Globe className={`h-[1.2rem] w-[1.2rem] ${isPending ? 'animate-pulse' : ''}`} />
           <span className="sr-only">{t("language.select")}</span>
         </Button>
       </DropdownMenuTrigger>
